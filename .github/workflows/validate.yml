@@ -1,0 +1,24 @@
+name: Validate dotfiles
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Install syntax-checking tools
+        run: sudo apt-get update && sudo apt-get install -y fish lua5.4 shellcheck
+      - name: Structural and syntax checks
+        run: bash scripts/validate-repo.sh
+      - name: Isolated user-home deployment tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Package installer dry run
+        run: bash scripts/install-packages.sh --dry-run
+      - name: Publisher dry run
+        run: bash scripts/publish-github.sh --dry-run
