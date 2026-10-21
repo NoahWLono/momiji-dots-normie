@@ -98,3 +98,21 @@ The publisher authenticates through the GitHub CLI, verifies the expected accoun
 creates `NoahWLono/momiji-dots-normie` as a public repository when absent, and pushes
 a clean `main` branch. It refuses to overwrite a different existing history and
 never writes to the source repository. See [PUBLISH.md](PUBLISH.md).
+
+## Clipboard-only screenshots
+
+
+
+Press **Ctrl + Shift + S** to select a screen region.
+
+Release the mouse to copy the PNG to the clipboard.
+
+No screenshot is saved to disk. Escape cancels.
+
+
+
+Uses Fish, grim, slurp, and wl-clipboard.
+
+The shortcut lives in `home/caelestia/hypr-user.lua`.
+
+The deployer installs `home/fish/region-copy.fish`.

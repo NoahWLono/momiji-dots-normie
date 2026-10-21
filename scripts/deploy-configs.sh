@@ -48,6 +48,7 @@ deploy_file "$ROOT/home/fish/20-greeting.fish" "$CONFIG/fish/conf.d/20-greeting.
 deploy_file "$ROOT/home/fastfetch/config.jsonc" "$CONFIG/fastfetch/config.jsonc"
 deploy_file "$ROOT/scripts/random-wallpaper.fish" "$HOME/.local/bin/normie-wallpaper.fish" 755
 deploy_file "$ROOT/wallpapers/arch-horizon.png" "$HOME/Pictures/Wallpapers/momiji-dots-normie/arch-horizon.png"
+deploy_file "$ROOT/home/fish/region-copy.fish" "$HOME/.local/bin/region-copy.fish"
 if (( DRY )); then echo 'Dry run complete; nothing changed.'; exit 0; fi
 if (( APPLY )) && [[ -n ${HYPRLAND_INSTANCE_SIGNATURE:-} ]] && command -v caelestia >/dev/null && command -v hyprctl >/dev/null; then
     caelestia wallpaper -f "$HOME/Pictures/Wallpapers/momiji-dots-normie/arch-horizon.png"
